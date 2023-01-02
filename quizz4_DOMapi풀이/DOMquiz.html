@@ -35,37 +35,23 @@
       #te_input {
         width: 600;
       }
-
-      .selected {
-        background-color: #00f;
-        color: #fff;
-      }
     </style>
-    <script>
-      // 1번
-      window.onload = function () {
-        const change = document.getElementById('p');
-        // console.log(1, change);
-        change.innerText = '로딩 될 때 글씨를 변경했습니다';
-        console.log(change);
-      };
-    </script>
   </head>
   <body>
     <div class="content">
       <div class="disp" id="display">
         <form>
-          <p id="p">1.페이지가 로딩 될 때 이곳의 글씨를 변경하시오.</p>
+          <p>1.페이지가 로딩 될 때 이곳의 글씨를 변경하시오.</p>
         </form>
       </div>
 
       <p>2.탭을 선택하면 선택한 탭의 배경과 글자의색이 바뀌도록 하시오</p>
       <div class="tab_host">
-        <div class="tab" onclick="clickedTab(this)">탭1</div>
-        <div class="tab" onclick="clickedTab(this)">탭2</div>
-        <div class="tab" onclick="clickedTab(this)">탭3</div>
-        <div class="tab" onclick="clickedTab(this)">탭4</div>
-        <div class="tab" onclick="clickedTab(this)">탭5</div>
+        <div class="tab" onclick="secondEvent(this)">탭1</div>
+        <div class="tab" onclick="secondEvent(this)">탭2</div>
+        <div class="tab" onclick="secondEvent(this)">탭3</div>
+        <div class="tab" onclick="secondEvent(this)">탭4</div>
+        <div class="tab" onclick="secondEvent(this)">탭5</div>
       </div>
 
       <p>3. 위의 탭 클릭시 아래의 컨텐츠중 탭과 숫자가 같은 것만 보이게 하시오.</p>
@@ -83,9 +69,9 @@
       <input
         type="text"
         id="te_input"
-        onkeypress="onInputValue(this)"
-        maxlength="10"
+        maxlength="9"
         placeholder="글자만 입력하세요."
+        onkeypress="noNumber(this)"
       />
 
       <p>
@@ -95,7 +81,7 @@
       <h5>6.추가된 내용을 수정할 수 있게 변경하시오.</h5>
       <form id="form">
         <input type="text" value="" width="600" id="list_data" name="content" />
-        <button type="submit" id="send" value="show_view">저장</button>
+        <button type="submit" id="send" value="show_view" onclick="saveDOM(this)">저장</button>
         <button onclick="reset_list()" type="reset">초기화</button>
         <p>리스트</p>
         <ul id="list">
@@ -104,58 +90,5 @@
         </ul>
       </form>
     </div>
-    <script>
-      //2번
-      // 프로퍼티로 스타일 주는 방법
-      // function onClickChange() {
-      //   const $quiz2 = document.querySelector('.tab');
-      //   $quiz2.style.backgroundColor = '#00f';
-      //   $quiz2.style.color = '#fff';
-      // }
-      // 탭메뉴 만들기 (구글링)
-      // const $tabhost = document.querySelector('.tab_host');
-      // function select(ulEl, liEl) {
-      //   Array.from(ulEl.children).forEach((v) => v.classList.remove('selected'));
-      //   if (liEl) liEl.classList.add('selected');
-      // }
-      const $tab = document.querySelectorAll('.tab');
-      console.log($tab[0]);
-      function clickedTab(event) {
-        for (let i = 0; i < $tab.length; i++) {
-          $tab[i].classList.remove('selected');
-        }
-        event.classList.add('selected');
-      }
-
-      //4번
-      const $input = document.getElementById('te_input');
-      function onInputValue() {
-        const { key, keyCode } = event;
-        console.log(keyCode);
-
-        if (key === 'Enter') {
-          console.log($input.value);
-        } else if (key >= 0 && key <= 9) console.log($input.value);
-        alert('숫자를 입력하였습니다');
-      }
-      // 5번
-      // const $listdata = document.getElementById('list_data');
-      // function onInputKeydown() {
-      //   const { key, keyCode } = event;
-      //   console.log(keyCode);
-      //   if (key === 'Enter') {
-      //     onSave();
-      //   }
-      // }
-
-      // function onSave(event) {
-      //   console.log($input.value);
-      // }
-
-      // function onDelete(event) {
-      //   if (!$input.value) return;
-      //   $input.removeAttribute($input.value);
-      // }
-    </script>
   </body>
 </html>
