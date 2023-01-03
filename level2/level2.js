@@ -24,11 +24,11 @@ console.log(RESERVATION_LIST);
 3. 함수 설계
  (1) 이름과 연락처를 입력하는 input 값을 가져올 수 있게 한다.
  (2) input에 입력한 이름값과 동일한 name키값을 갖는 객체가 있는지 RESERVATION_LIST 배열에서 찾는다.
- (3) 사용자가 입력한 이름이 RESERVATION_LIST에 없을 경우 '예약되지 않은 고객입니다'라는 알림창을 띄운다.
- (4) 입력한 이름 input값과 동일한 name키값이 있을 경우, 해당 객체들을 새로 배열화한다.
- (5) 새로 만든 배열(input값과 name키값이 동일한 객체들을 요소로 갖는 배열)에서 사용자가 입력한 연락처와 동일한 phone키 값을 갖는 객체를 찾는다.
- (6) 동일한 phone키값이 없을 경우 '연락처가 다릅니다. 다시 확인해주세요'라는 알림창을 띄운다.
- (7) 동일한 phone키값이 있을 경우 해당 객체의 number키값을 찾고 화면에 나타낸다.
+ (3) 사용자가 입력한 이름이 RESERVATION_LIST에 없을 경우 '예약되지 않은 고객입니다'라는 알림창을 띄운다. => return NodeUserListInReservationList();
+ (4) 입력한 이름 input값과 동일한 name키값이 있을 경우, 해당 객체들을 새로 배열화한다. => [.filter]
+ (5) 새로 만든 배열(input값과 name키값이 동일한 객체들을 요소로 갖는 배열)에서 사용자가 입력한 연락처와 동일한 phone키 값을 갖는 객체를 찾는다. => [.find]
+ (6) 동일한 phone키값이 없을 경우 '연락처가 다릅니다. 다시 확인해주세요'라는 알림창을 띄운다. => return NodeUserListInReservationList();
+ (7) 동일한 phone키값이 있을 경우 해당 객체의 number키값을 찾고 화면에 나타낸다. => $reservation.innerHTML = targetUser.number;
 
 4. 구글링 키워드
  (1) 자바스크립트 배열 객체 특정 값 찾기
